@@ -32,17 +32,33 @@ var someObject: SomeObject? by PreferencesDelegate<SomeObject?, String>(
         preferences = userPref,
         name = "SOME_KEY",
         defValue = null,
-        onDifficultTypeTransform = {
+        onDifficultTypeTransform = {   // Transform the object to a string to write to preferences
             it?.let {
                 Gson().toJson(someObject)
             } ?: ""
         },
-        onPrimitiveTypeTransform = {
+        onPrimitiveTypeTransform = {   // Transform the string back to an object
             if (it.isEmpty()) {
                 null
             } else {
                 Gson().fromJson(it, SomeObject::class.java)
             }
         }
+    )
+```
+3. Use with kotlin flow
+```
+private val _someValueFlow = MutableSharedFlow<String>(replay = 1)
+
+/**
+ * Returns the flow.
+ */
+val someValueFlow: SharedFlow<String> = _usersFlow
+
+var someValue: String by PreferencesDelegate<String, String>(
+        preferences = userPref,
+        name = SOME_KEY,
+        defValue = "",
+        prefFlow = _someValueFlow
     )
 ```
