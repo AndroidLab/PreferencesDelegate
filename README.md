@@ -24,7 +24,7 @@ var someValue: String by PreferencesDelegate<String, String>(
         name = SOME_KEY,
         defValue = ""
     )
-...
+```
 
 2. Use for object
 ```
@@ -45,4 +45,4 @@ var someObject: SomeObject? by PreferencesDelegate<SomeObject?, String>(
             }
         }
     )
-...
+```
