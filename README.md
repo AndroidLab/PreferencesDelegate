@@ -62,3 +62,5 @@ var someValue: String by PreferencesDelegate<String, String>(
         prefFlow = _someValueFlow
     )
 ```
+# Sample
+Download the project to see an sample of using PreferencesDelegate + RecyclerView + user list + flow
