@@ -67,17 +67,17 @@ Download the project to see an sample of using PreferencesDelegate + RecyclerVie
 
 # To get a Git project into your build
 Add it in your root build.gradle at the end of repositories
-'''
+```
 allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
-'''
+```
 Add the dependency
-'''
+```
 dependencies {
 	        implementation 'com.github.AndroidLab:PreferencesDelegate:Tag'
 	}
-'''
+```
